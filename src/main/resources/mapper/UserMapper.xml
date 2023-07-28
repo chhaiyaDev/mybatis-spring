@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace = "com.bbc.mybatisspringboot.mapper.UserMapper">
+   
+   <select id = "getAllUsers">
+      SELECT * FROM users; 
+   </select>
+   
+   <select id="getUserById" parameterType = "Long">
+	   SELECT * FROM users WHERE id = #{id};
+   </select>
+   
+   <select id="findByEmail">
+	   SELECT * FROM users WHERE email = #{email};
+   </select>
+   
+   <select id="findByEmailAndNotId">
+		SELECT u.email FROM users u WHERE u.email = #{email} AND NOT u.id = #{id}
+   </select>
+   
+   <insert id="insertUser">
+	   INSERT INTO users (firstname,lastname,email,phone,password) VALUES (#{firstName},#{lastName},#{email},#{phone},#{password});
+   </insert>
+   
+   <update id="updateUser">
+	   UPDATE users SET firstname = #{firstName}, lastname = #{lastName}, email = #{email}, phone =  #{phone}, password = #{password} WHERE id = #{id};
+   </update>
+  
+</mapper>
