@@ -24,4 +24,7 @@ public interface UserMapper {
     
     // update user by id
     void updateUser(User user); 
+    
+    // find email not id 
+    User findByEmailAndNotId(String email, Long id);
 }

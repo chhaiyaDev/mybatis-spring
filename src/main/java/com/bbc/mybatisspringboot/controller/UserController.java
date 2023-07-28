@@ -58,10 +58,13 @@ public class UserController {
     	return "User created.";
     }
     
- // update service
+    // update service
     @PutMapping("/{id}")
     public String updateProduct(@PathVariable Long id, @RequestBody User user) {
-    	
+    	User emailAlreadyExist = userService.getUserByEmaillNotId(user.getEmail(), id);
+    	if(emailAlreadyExist!=null) {
+    		return "Email alredy exist.";
+    	}
         userService.updateUser(id, user);
         
         return "User updated";

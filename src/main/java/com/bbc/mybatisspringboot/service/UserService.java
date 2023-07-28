@@ -60,4 +60,9 @@ public class UserService {
     public User getUserByEmail(String email) {
     	return userMapper.findByEmail(email);
     }
+    
+    // find email not id
+    public User getUserByEmaillNotId(String email, Long id) {
+    	return userMapper.findByEmailAndNotId(email, id);
+    }
 }
