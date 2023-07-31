@@ -6,6 +6,7 @@
 			
    <mappers>
       <mapper resource = "mapper/UserMapper.xml"/>
+      <mapper resource = "mapper/RoleMapper.xml"/>
    </mappers>
   
 </configuration>

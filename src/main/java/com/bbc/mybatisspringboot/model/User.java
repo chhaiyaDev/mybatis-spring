@@ -5,6 +5,7 @@ import jakarta.persistence.Column;
 public class User {
 	
 	private Long id;
+	private String role_name;
 	
 	@Column(name = "first_name")
 	private String firstName;
@@ -21,6 +22,12 @@ public class User {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public String getRole_name() {
+		return role_name;
+	}
+	public void setRole_name(String role_name) {
+		this.role_name = role_name;
 	}
 	public String getFistName() {
 		return firstName;

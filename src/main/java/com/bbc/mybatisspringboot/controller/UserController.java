@@ -38,7 +38,7 @@ public class UserController {
     public String deleteUser(@PathVariable Long id) {
     	User user = userService.getUserById(id);
     	if (user == null) {
-    		return "not found";
+    		return "not found!!";
     	}
     	try {
     		userService.deleteUserById(id);

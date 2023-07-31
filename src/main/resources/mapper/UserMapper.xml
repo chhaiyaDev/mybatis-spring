@@ -6,9 +6,10 @@
 	
 <mapper namespace = "com.bbc.mybatisspringboot.mapper.UserMapper">
    
-   <select id = "getAllUsers">
-      SELECT * FROM users; 
-   </select>
+   <select id="getAllUsers">
+	   SELECT u.id,r.role_name,u.firstname,u.lastname,u.phone,u.email,u.password FROM users u 
+	   INNER JOIN role r ON u.role_id = r.id;
+	</select>
    
    <select id="getUserById" parameterType = "Long">
 	   SELECT * FROM users WHERE id = #{id};
@@ -23,7 +24,7 @@
    </select>
    
    <insert id="insertUser">
-	   INSERT INTO users (firstname,lastname,email,phone,password) VALUES (#{firstName},#{lastName},#{email},#{phone},#{password});
+	   INSERT INTO users (role_id,firstname,lastname,email,phone,password) VALUES (#{role_id},#{firstName},#{lastName},#{email},#{phone},#{password});
    </insert>
    
    <update id="updateUser">
