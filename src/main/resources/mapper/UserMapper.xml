@@ -29,5 +29,9 @@
    <update id="updateUser">
 	   UPDATE users SET firstname = #{firstName}, lastname = #{lastName}, email = #{email}, phone =  #{phone}, password = #{password} WHERE id = #{id};
    </update>
+   
+   <delete id="deleteUser">
+	   DELETE FROM users WHERE id = #{id};
+   </delete>
   
 </mapper>
